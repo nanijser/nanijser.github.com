@@ -408,6 +408,13 @@ body >header a {
 }
 #imglogo img {
   width: 4em;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform 2s ease-out;
+  -moz-transition: -moz-transform 2s ease-out;
+  -o-transition: -o-transform 2s ease-out;
+  -ms-transition: -ms-transform 2s ease-out;
+  transition: transform 2s ease-out;
 }
 @media only screen and (min-width: 768px) {
   #imglogo img {
@@ -418,6 +425,13 @@ body >header a {
   #imglogo img {
     width: 5.5em;
   }
+}
+#imglogo:hover {
+  -webkit-transform: rotateZ(360deg);
+  -moz-transform: rotateZ(360deg);
+  -o-transform: rotateZ(360deg);
+  -ms-transform: rotateZ(360deg);
+  transform: rotateZ(360deg);
 }
 #textlogo {
   float: left;

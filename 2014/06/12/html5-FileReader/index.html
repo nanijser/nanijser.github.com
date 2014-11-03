@@ -4,14 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>chrome livestyle 插件 | nanijser&#39;blog</title>
+    <title>html5 FileReader | nanijser&#39;blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="nani">
     
-    <meta name="description" content="一般我们在DevTools调试样式的时候,是无法动态更新css文件,需要手动更新。现在我们有liveStyle，只要修改DevTools，就会自动更新css文件，更新css文件，也可以直接看到效果，无需刷新，类似angular中的双向绑定。
-livestyle安装
-安装sublime text的li">
+    <meta name="description" content="最近项目中遇到，图片上传预览功能。可以用html5 FileReader实现本地预览，无效提交后台来实现。FileReader 可以返回几种格式来文件数据的格式。readAsText() – 返回文件内容的纯文本格式readAsBinaryString() –返回文件内容的二进制格式 (不推荐– 推">
     
     
     
@@ -70,15 +68,15 @@ livestyle安装
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/11/03/css-livestyle/" title="chrome livestyle 插件" itemprop="url">chrome livestyle 插件</a>
+      <a href="/2014/06/12/html5-FileReader/" title="html5 FileReader" itemprop="url">html5 FileReader</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="nani">nani</a>
     </p>
   <p class="article-time">
-    <time datetime="2014-11-03T06:25:11.000Z" itemprop="datePublished">11月 3 2014</time>
-    Updated:<time datetime="2014-11-03T07:20:04.000Z" itemprop="dateModified">11月 3 2014</time>
+    <time datetime="2014-06-12T13:00:00.000Z" itemprop="datePublished">6月 12 2014</time>
+    Updated:<time datetime="2014-11-03T09:51:07.000Z" itemprop="dateModified">11月 3 2014</time>
     
   </p>
 </header>
@@ -87,28 +85,34 @@ livestyle安装
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#核心代码"><span class="toc-number">1.</span> <span class="toc-text">核心代码</span></a></li></ol>
 		</div>
 		
-		<p>一般我们在DevTools调试样式的时候,是无法动态更新css文件,需要手动更新。<br>现在我们有liveStyle，只要修改DevTools，就会自动更新css文件，更新css文件，也可以直接看到效果，无需刷新，类似angular中的双向绑定。</p>
-<p>livestyle安装</p>
-<p>安装sublime text的liveStyle插件，package control可直接搜索安装，也可下载，<a href="http://livestyle.emmet.io/install/" target="_blank" rel="external">点这里</a><br>安装chrome扩展，<a href="https://chrome.google.com/webstore/detail/diebikgmpmeppiilkaijjbdgciafajmg" target="_blank" rel="external">点这里</a></p>
-<p>sublime text 打开一个css文件，打开DevTools，切换到LiveStyle。<br>选中Enable LiveStyle for current page，选择一个需要替换的css。</p>
+		<p>最近项目中遇到，图片上传预览功能。<br>可以用html5 FileReader实现本地预览，无效提交后台来实现。<br>FileReader 可以返回几种格式来文件数据的格式。<br>readAsText() – 返回文件内容的纯文本格式<br>readAsBinaryString() –返回文件内容的二进制格式 (不推荐– 推荐使用 readAsArrayBuffer())<br>readAsArrayBuffer() – 返回文件内容的 ArrayBuffer 格式(图片文件推荐使用)<br>readAsDataURL() – 返回文件内容的 data URL格式</p>
+<p><a href="/demo/file.html">demo</a></p>
+<h3 id="核心代码">核心代码</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var reader = new FileReader();</div><div class="line">reader.readAsDataURL(file); // 返回文件内容的 data URL格式</div><div class="line">reader.onload = function(e){</div><div class="line">        result.innerHTML = <span class="string">'&lt;img src="'</span>+this.result+<span class="string">'" alt=""/&gt;'</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+
   
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/html5-FileReader/">html5 FileReader</a>
+  </div>
+
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/css/">css</a>
+  <a class="article-category-link" href="/categories/html5/">html5</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2014/11/03/css-livestyle/" data-title="chrome livestyle 插件 | nanijser&#39;blog" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2014/06/12/html5-FileReader/" data-title="html5 FileReader | nanijser&#39;blog" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -117,11 +121,19 @@ livestyle安装
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2014/11/03/css-livestyle/" title="chrome livestyle 插件">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  chrome livestyle 插件</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2014/06/12/html5-FileReader/"  title="html5 FileReader">
+<a href="/2013/12/12/game-sanke/"  title="贪吃蛇游戏">
  <strong>NEXT:</strong><br/> 
- <span>html5 FileReader
+ <span>贪吃蛇游戏
 </span>
 </a>
 </div>
@@ -138,7 +150,7 @@ livestyle安装
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#核心代码"><span class="toc-number">1.</span> <span class="toc-text">核心代码</span></a></li></ol>
   </div>
 
 <div id="asidepart">
