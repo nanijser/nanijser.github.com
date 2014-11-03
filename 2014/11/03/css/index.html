@@ -9,9 +9,7 @@
     
     <meta name="author" content="Nani">
     
-    <meta name="description" content="一般我们在DevTools调试样式的时候,是无法动态更新css文件,需要手动更新。现在我们有liveStyle，只要修改DevTools，就会自动更新css文件，更新css文件，也可以直接看到效果，无需刷新，类似angular中的双向绑定。
-livestyle安装
-安装sublime text的li">
+    <meta name="description" content="所以今天介绍个利器：liveStyle，liveStyle是Emmet团队开发的，Emmet就是大名鼎鼎的zen coding啊。其实在订阅的weekly里面早就介绍过livestyle，真正用起来还是看了上面老外的这个ppt，试用了下liveStyle，结果一下子就喜欢上了，如果你开发遇见了下面的">
     
     
     
@@ -81,7 +79,7 @@ livestyle安装
     </p>
   <p class="article-time">
     <time datetime="2014-11-03T06:25:11.000Z" itemprop="datePublished">11月 3 2014</time>
-    Updated:<time datetime="2014-11-03T06:39:53.000Z" itemprop="dateModified">11月 3 2014</time>
+    Updated:<time datetime="2014-11-03T06:22:49.000Z" itemprop="dateModified">11月 3 2014</time>
     
   </p>
 </header>
@@ -90,15 +88,17 @@ livestyle安装
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#livestyle安装"><span class="toc-number">1.</span> <span class="toc-text">livestyle安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装sublime_text的liveStyle插件，package_control可直接搜索安装，也可下载，点这里"><span class="toc-number">1.1.</span> <span class="toc-text">安装sublime text的liveStyle插件，package control可直接搜索安装，也可下载，点这里</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装chrome扩展，点这里"><span class="toc-number">1.2.</span> <span class="toc-text">安装chrome扩展，点这里</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sublime_text_打开一个css文件，打开DevTools，切换到LiveStyle。"><span class="toc-number">1.3.</span> <span class="toc-text">sublime text 打开一个css文件，打开DevTools，切换到LiveStyle。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选中Enable_LiveStyle_for_current_page，选择一个需要替换的css。"><span class="toc-number">1.4.</span> <span class="toc-text">选中Enable LiveStyle for current page，选择一个需要替换的css。</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#js_code"><span class="toc-number">1.</span> <span class="toc-text">js code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#html_code"><span class="toc-number">2.</span> <span class="toc-text">html code</span></a></li></ol>
 		</div>
 		
-		<p>一般我们在DevTools调试样式的时候,是无法动态更新css文件,需要手动更新。<br>现在我们有liveStyle，只要修改DevTools，就会自动更新css文件，更新css文件，也可以直接看到效果，无需刷新，类似angular中的双向绑定。</p>
-<h2 id="livestyle安装">livestyle安装</h2>
-<h3 id="安装sublime_text的liveStyle插件，package_control可直接搜索安装，也可下载，点这里">安装sublime text的liveStyle插件，package control可直接搜索安装，也可下载，<a href="http://livestyle.emmet.io/install/" target="_blank" rel="external">点这里</a></h3>
-<h3 id="安装chrome扩展，点这里">安装chrome扩展，<a href="https://chrome.google.com/webstore/detail/diebikgmpmeppiilkaijjbdgciafajmg" target="_blank" rel="external">点这里</a></h3>
-<h3 id="sublime_text_打开一个css文件，打开DevTools，切换到LiveStyle。">sublime text 打开一个css文件，打开DevTools，切换到LiveStyle。</h3>
-<h3 id="选中Enable_LiveStyle_for_current_page，选择一个需要替换的css。">选中Enable LiveStyle for current page，选择一个需要替换的css。</h3>
+		<p>所以今天介绍个利器：liveStyle，liveStyle是Emmet团队开发的，Emmet就是大名鼎鼎的zen coding啊。<br>其实在订阅的weekly里面早就介绍过livestyle，真正用起来还是看了上面老外的这个ppt，试用了下liveStyle，结果一下子就喜欢上了，如果你开发遇见了下面的问题就可以使用liveStyle了：<br>在chrome DevTools中修改了样式，想同步到css文件中<br>修改了css文件，不想刷新chrome，就可以实时看到效果<br>嗯，livestyle解决了这两个问题，提高了开发效率！</p>
+<p>解决办法:</p>
+<h3 id="js_code">js code</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(<span class="string">'myGrid'</span>);</div><div class="line">app.filter(<span class="string">'keys'</span>, <span class="function"><span class="title">function</span></span>() {</div><div class="line">    <span class="keyword">return</span> function(input) {</div><div class="line">      <span class="keyword">if</span> (!input) {</div><div class="line">        <span class="keyword">return</span> [];</div><div class="line">      }</div><div class="line">      <span class="keyword">return</span> Object.keys(input);</div><div class="line">    }</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<h3 id="html_code">html code</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;tr ng-repeat=<span class="string">"key in ds | keys"</span>&gt;&lt;/tr&gt;</div></pre></td></tr></table></figure>
+
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -151,7 +151,7 @@ livestyle安装
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#livestyle安装"><span class="toc-number">1.</span> <span class="toc-text">livestyle安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装sublime_text的liveStyle插件，package_control可直接搜索安装，也可下载，点这里"><span class="toc-number">1.1.</span> <span class="toc-text">安装sublime text的liveStyle插件，package control可直接搜索安装，也可下载，点这里</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装chrome扩展，点这里"><span class="toc-number">1.2.</span> <span class="toc-text">安装chrome扩展，点这里</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sublime_text_打开一个css文件，打开DevTools，切换到LiveStyle。"><span class="toc-number">1.3.</span> <span class="toc-text">sublime text 打开一个css文件，打开DevTools，切换到LiveStyle。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选中Enable_LiveStyle_for_current_page，选择一个需要替换的css。"><span class="toc-number">1.4.</span> <span class="toc-text">选中Enable LiveStyle for current page，选择一个需要替换的css。</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#js_code"><span class="toc-number">1.</span> <span class="toc-text">js code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#html_code"><span class="toc-number">2.</span> <span class="toc-text">html code</span></a></li></ol>
   </div>
 
 <div id="asidepart">
@@ -169,7 +169,7 @@ livestyle安装
 		
 			<li><a href="/categories/css3/" title="css3">css3<sup>5</sup></a></li>
 		
-			<li><a href="/categories/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>8</sup></a></li>
 		
 		</ul>
 </div>
@@ -180,7 +180,7 @@ livestyle安装
 	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>8</sup></a></li>
 		
 		</ul>
 </div>
