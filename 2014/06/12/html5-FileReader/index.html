@@ -9,7 +9,7 @@
     
     <meta name="author" content="nani">
     
-    <meta name="description" content="最近项目中遇到，图片上传预览功能。可以用html5 FileReader实现本地预览，无效提交后台来实现。FileReader 可以返回几种格式来文件数据的格式。readAsText() – 返回文件内容的纯文本格式readAsBinaryString() –返回文件内容的二进制格式 (不推荐– 推">
+    <meta name="description" content="最近项目中遇到，图片上传预览功能。可以用html5 FileReader实现本地预览，无须提交后台来实现。FileReader 可以返回几种格式来文件数据的格式。readAsText() – 返回文件内容的纯文本格式readAsBinaryString() –返回文件内容的二进制格式 (不推荐– 推">
     
     
     
@@ -76,7 +76,7 @@
     </p>
   <p class="article-time">
     <time datetime="2014-06-12T13:00:00.000Z" itemprop="datePublished">6月 12 2014</time>
-    Updated:<time datetime="2014-11-03T09:51:07.000Z" itemprop="dateModified">11月 3 2014</time>
+    Updated:<time datetime="2014-11-04T09:25:19.000Z" itemprop="dateModified">11月 4 2014</time>
     
   </p>
 </header>
@@ -88,7 +88,7 @@
 		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#核心代码"><span class="toc-number">1.</span> <span class="toc-text">核心代码</span></a></li></ol>
 		</div>
 		
-		<p>最近项目中遇到，图片上传预览功能。<br>可以用html5 FileReader实现本地预览，无效提交后台来实现。<br>FileReader 可以返回几种格式来文件数据的格式。<br>readAsText() – 返回文件内容的纯文本格式<br>readAsBinaryString() –返回文件内容的二进制格式 (不推荐– 推荐使用 readAsArrayBuffer())<br>readAsArrayBuffer() – 返回文件内容的 ArrayBuffer 格式(图片文件推荐使用)<br>readAsDataURL() – 返回文件内容的 data URL格式</p>
+		<p>最近项目中遇到，图片上传预览功能。<br>可以用html5 FileReader实现本地预览，无须提交后台来实现。<br>FileReader 可以返回几种格式来文件数据的格式。<br>readAsText() – 返回文件内容的纯文本格式<br>readAsBinaryString() –返回文件内容的二进制格式 (不推荐– 推荐使用 readAsArrayBuffer())<br>readAsArrayBuffer() – 返回文件内容的 ArrayBuffer 格式(图片文件推荐使用)<br>readAsDataURL() – 返回文件内容的 data URL格式</p>
 <p><a href="/demo/file.html">demo</a></p>
 <h3 id="核心代码">核心代码</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var reader = new FileReader();</div><div class="line">reader.readAsDataURL(file); // 返回文件内容的 data URL格式</div><div class="line">reader.onload = function(e){</div><div class="line">        result.innerHTML = <span class="string">'&lt;img src="'</span>+this.result+<span class="string">'" alt=""/&gt;'</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
@@ -122,10 +122,10 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2014/11/03/css-livestyle/" title="chrome livestyle 插件">
+ <a href="/2014/08/05/web-p/" title="2014-07 前端文章集合">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  chrome livestyle 插件</span>
+  2014-07 前端文章集合</span>
 </a>
 </div>
 
@@ -170,7 +170,7 @@
 		
 			<li><a href="/categories/html5/" title="html5">html5<sup>1</sup></a></li>
 		
-			<li><a href="/categories/前端开发/" title="前端开发">前端开发<sup>1</sup></a></li>
+			<li><a href="/categories/前端开发/" title="前端开发">前端开发<sup>3</sup></a></li>
 		
 		</ul>
 </div>
