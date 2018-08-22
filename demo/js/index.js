@@ -4,6 +4,13 @@ $(function() {
 	$(".viewer").append("<iframe id='viewer' frameborder='no'/>");
 	iframe = $(".viewer iframe")[0];
 	type1();
+
+	$(".btn1").on("click", function(){
+		type1();
+	})
+	$(".btn2").on("click", function(){
+		type2();
+	})
 });
 function type1()
 {
